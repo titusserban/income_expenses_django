@@ -1,4 +1,3 @@
-  
 from django.shortcuts import render, redirect
 from django.views import View
 import json
@@ -125,4 +124,23 @@ class VerificationView(View):
 class LoginView(View):
     def get(self, request):
         return render(request, 'authentication/login.html')
+
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+
+        if username and password:
+            user = auth.authenticate(username = username, password = password)
+
+            if user:
+                if user.is_active:
+                    auth.login(request, user)
+                    messages.success(request, 'Welcome, ' + user.username + '. You are now logged in.')
+
+                messages.error(request, 'Your account is not active. Please check your email.')
+                return render(request, 'authentication/login.html')      
+
+            messages.error(request, 'Invalid credentials. Please try again.')
+            return render(request, 'authentication/login.html')    
+
 
