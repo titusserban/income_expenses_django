@@ -60,8 +60,14 @@
           </div>
           <input type="submit" value="Register" class="btn btn-block btn-primary submit-btn" />
         </form>
+        <div class="container">
+      <span class="text-lead lead">Do you have an account?</span><a href="{% url 'login' %}">Login</a><br/>
+      <span class="text-lead lead">Did you forget your password?</span><a href="{% url 'request-password' %}">Reset password</a>
+      </div>
 
       </div>
+
+      
 
       </div>
     </div>

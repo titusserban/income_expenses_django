@@ -20,3 +20,12 @@
 .showPasswordToggle:hover {
   transform: scale(1.2);
 }
+
+.showPasswordToggle2 {
+  cursor: pointer;
+  transition: all;
+}
+
+.showPasswordToggle2:hover {
+  transform: scale(1.2);
+}
